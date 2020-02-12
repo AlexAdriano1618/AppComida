@@ -1,7 +1,11 @@
 package com.alex.appcomida;
 
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -40,9 +44,24 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
+        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            //User has previously accepted this permission
+            if (ActivityCompat.checkSelfPermission(this,
+                    Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                mMap.setMyLocationEnabled(true);
+            }
+        } else {
+            //Not in api-23, no need to prompt
+            mMap.setMyLocationEnabled(true);
+        }
+
+    }
+    public  void Actual(GoogleMap googleMap)
+    {
         LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-        //mMap.setMyLocationEnabled(true);
+        mMap.addMarker(new MarkerOptions().position(sydney).title("Aqui"));
+        //mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
 }
