@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -22,6 +23,7 @@ public class Registro extends AppCompatActivity {
 
     EditText nom, ape, usu, cel, con;
     Button guar, miubi;
+    ImageButton mygps;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +36,7 @@ public class Registro extends AppCompatActivity {
         con = findViewById(R.id.txtPwd);
         guar = findViewById(R.id.btnGuardar);
         miubi = findViewById(R.id.btnMyGPS);
+        mygps = findViewById(R.id.imgbtnubi);
 
         miubi.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,7 +44,12 @@ public class Registro extends AppCompatActivity {
                 miUbicacion();
             }
         });
-
+        mygps.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                miUbicacion();
+            }
+        });
         guar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

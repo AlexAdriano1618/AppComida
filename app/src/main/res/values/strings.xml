@@ -30,4 +30,13 @@
     <string name="ingrese_una_contrase_a">ingrese una contraseña</string>
     <string name="title_activity_maps">Map</string>
     <string name="mi_ubicaci_n">Mi Ubicación</string>
+    <string name="pedido">Pedido</string>
+    <string name="se_entregar_aqui">Se entregará aqui:</string>
+    <string name="tu_pedido">Tu Pedido:</string>
+    <string name="total">Total</string>
+    <string name="suma_total">Suma_total</string>
+    <string name="regresar">Regresar</string>
+    <string name="confirmar_pedido">Confirmar Pedido</string>
+    <string name="cantidad">Cantidad</string>
+    <string name="plato">Plato</string>
 </resources>
