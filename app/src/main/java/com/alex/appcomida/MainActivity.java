@@ -26,8 +26,24 @@ public class MainActivity extends AppCompatActivity {
         TextPassword = findViewById(R.id.txt_password);
         btnRegistrar = findViewById(R.id.btn_registrar);
         btnLogin = findViewById(R.id.btnLogin);
-        btnLogin.setOnClickListener((View.OnClickListener) this);
-        btnRegistrar.setOnClickListener((View.OnClickListener) this);
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ConsumoRest consumo = new ConsumoRest();
+                if(consumo.getDataUsuarios(TextUsuario.getText().toString(), TextPassword.getText().toString())){
+                    Intent abrir_reg = new Intent(MainActivity.this, Menu.class );
+                    startActivity(abrir_reg);
+                } else {
+                    Toast.makeText(getApplicationContext(),"Credenciales incorrectas", Toast.LENGTH_SHORT);
+                }
+            }
+        });
+        btnRegistrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                registrarUsuario();
+            }
+        });
     }
     private void registrarUsuario() {
 
@@ -36,23 +52,5 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.btn_registrar:
-                registrarUsuario();
-                break;
-            case R.id.btnLogin:
-                ConsumoRest consumo = new ConsumoRest();
-                if(consumo.getDataUsuarios(TextUsuario.getText().toString(), TextPassword.getText().toString())){
-                    Intent abrir_reg = new Intent(MainActivity.this, Menu.class );
-                    startActivity(abrir_reg);
-                } else {
-                    Toast.makeText(getApplicationContext(),"Credenciales incorrectas", Toast.LENGTH_SHORT);
-                }
 
-
-                // loginUsuario1();
-                break;
-        }
-    }
 }
