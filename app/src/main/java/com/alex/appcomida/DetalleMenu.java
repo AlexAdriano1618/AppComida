@@ -51,22 +51,15 @@ public class DetalleMenu extends AppCompatActivity {
         int resid = bundle.getInt("resID");
         img.setImageResource(resid);
 
-      /*  String resIDT4 = getIntent().getStringExtra("resIDT4");
-        String resIDT3 = getIntent().getStringExtra("resIDT3");
-        String resIDT2 = getIntent().getStringExtra("resIDT2");*/
 
         String resIDT = getIntent().getStringExtra("resIDT");
-        txtNombrePlato.setText("-"+resIDT);
+        //txtNombrePlato.setText("-"+resIDT);
 
-
-
-       /* String dato = getIntent().getStringExtra("dato");
-        txtNombrePlato.setText("--"+ dato);*/
         clsMenu menu = new clsMenu();
         ConsumoRest consumo = new ConsumoRest();
         menu=consumo.getDataMenuDetalle(resIDT);
         txtNombrePlato.setText(menu.getPlato());
-        txtNombrePlato.setText(menu.getDescripcion());
+        txtDetallePlato.setText(menu.getDescripcion());
 
 
     }

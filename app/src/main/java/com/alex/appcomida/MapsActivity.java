@@ -42,15 +42,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        mMap.getUiSettings().setZoomControlsEnabled(true);
+
         // Add a marker in Sydney and move the camera
-        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             //User has previously accepted this permission
             if (ActivityCompat.checkSelfPermission(this,
                     Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                 mMap.setMyLocationEnabled(true);
+                Actual(mMap);
             }
         } else {
             //Not in api-23, no need to prompt
