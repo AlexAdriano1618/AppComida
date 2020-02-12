@@ -11,6 +11,7 @@
         android:layout_width="248dp"
         android:layout_height="193dp"
         android:layout_marginTop="32dp"
+        android:contentDescription="@string/plato"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,8 +62,15 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/button_background"
-            android:text="Disminuir"
+            android:text="@string/disminuir"
             android:textColor="@android:color/white" />
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?android:attr/listDivider" />
 
         <Button
             android:id="@+id/btnAumentar"
@@ -70,7 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/button_background"
-            android:text="Añadir"
+            android:text="@string/a_adir"
             android:textColor="@android:color/white" />
 
     </LinearLayout>
@@ -89,7 +97,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Cantidad:"
+            android:text="@string/cantidad"
             android:textSize="18sp" />
 
         <TextView
@@ -109,11 +117,12 @@
         android:layout_marginRight="177dp"
         android:layout_marginBottom="4dp"
         android:clickable="true"
-        app:backgroundTint="#AB0000"
+        app:backgroundTint="#37822F"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/carrito" />
+        app:srcCompat="@drawable/carrito"
+        android:focusable="true" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

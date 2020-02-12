@@ -39,4 +39,6 @@
     <string name="confirmar_pedido">Confirmar Pedido</string>
     <string name="cantidad">Cantidad</string>
     <string name="plato">Plato</string>
+    <string name="a_adir">Añadir</string>
+    <string name="disminuir">Disminuir</string>
 </resources>
