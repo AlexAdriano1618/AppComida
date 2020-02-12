@@ -70,7 +70,8 @@
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="?android:attr/listDivider" />
+            android:background="?android:attr/listDivider"
+            android:visibility="invisible" />
 
         <Button
             android:id="@+id/btnAumentar"
@@ -98,13 +99,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/cantidad"
-            android:textSize="18sp" />
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/txtCantidad1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textSize="24sp" />
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
