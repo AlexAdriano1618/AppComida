@@ -21,7 +21,8 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:onClick="onClick"
-        android:visibility="visible">
+        android:visibility="visible"
+        android:focusable="true">
 
         <LinearLayout
             android:layout_width="match_parent"
