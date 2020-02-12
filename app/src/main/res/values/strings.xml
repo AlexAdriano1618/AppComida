@@ -1,3 +1,33 @@
 <resources>
     <string name="app_name">AppComida</string>
+    <string name="men">Menú</string>
+    <string name="registro_de_usuario">Registro de usuario</string>
+    <string name="usuario">Usuario</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellido">Apellido</string>
+    <string name="celular">Celular</string>
+    <string name="guardar">Guardar</string>
+    <string name="contrase_a">Contraseña</string>
+    <string name="ingrese_el_nombre_de_usuario">Ingrese el nombre de usuario</string>
+    <string name="ingrese_su_contrase_a">Ingrese su contraseña</string>
+    <string name="ingrese_su_numero_de_celular">Ingrese su numero de celular</string>
+    <string name="ingrese_su_apellido">Ingrese su apellido</string>
+    <string name="ingrese_su_nombre">Ingrese su nombre</string>
+    <string name="proprecio4">ProPrecio4</string>
+    <string name="proprecio3">ProPrecio3</string>
+    <string name="producto2">Producto2</string>
+    <string name="proprecio2">ProPrecio2</string>
+    <string name="prodprecio1">ProdPrecio1</string>
+    <string name="producto1">Producto1</string>
+    <string name="producto3">Producto3</string>
+    <string name="producto4">Producto4</string>
+    <string name="todo">TODO</string>
+    <string name="longitud">Longitud</string>
+    <string name="latitud">Latitud</string>
+    <string name="login">Login</string>
+    <string name="registrar">Registrar</string>
+    <string name="ingrese_su_usuario">ingrese su usuario</string>
+    <string name="ingrese_una_contrase_a">ingrese una contraseña</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="mi_ubicaci_n">Mi Ubicación</string>
 </resources>
