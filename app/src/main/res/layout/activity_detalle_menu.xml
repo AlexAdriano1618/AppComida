@@ -30,28 +30,18 @@
         app:layout_constraintVertical_bias="0.294">
 
         <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:text="Nombre de Plato:"
-            android:textSize="30dp" />
-
-        <TextView
             android:id="@+id/txtNombrePlato"
             android:layout_width="match_parent"
-            android:layout_height="36dp" />
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:text="Descripcion del Plato:"
-            android:textSize="30dp" />
+            android:layout_height="47dp"
+            android:textSize="24sp"
+            android:gravity="center"/>
 
         <TextView
             android:id="@+id/txtDescripcionPlato"
             android:layout_width="match_parent"
-            android:layout_height="36dp" />
+            android:layout_height="36dp"
+            android:textSize="24sp"
+            android:gravity="center"/>
 
     </LinearLayout>
 
