@@ -42,7 +42,14 @@ public class DetalleMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                contador --;
+                if(contador<=0)
+                {
+                    contador=0;
+                }else
+                    {
+                        contador --;
+                    }
+
                 txtCantidad1.setText(""+contador );
             }
         });
