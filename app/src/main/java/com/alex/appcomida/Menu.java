@@ -74,19 +74,19 @@ public class Menu extends AppCompatActivity  implements View.OnClickListener{
             if (i == 0 )  {
                 cod1 = Integer.toString(Datas.get(i).getCodigo());
                 txt1.setText(Datas.get(i).getPlato());
-                pre1.setText(Double.toString(Datas.get(i).getPrecio()));
+                pre1.setText("$"+Double.toString(Datas.get(i).getPrecio()));
             } else if (i == 1) {
                 cod2 = Integer.toString(Datas.get(i).getCodigo());
                 txt2.setText(Datas.get(i).getPlato());
-                pre2.setText(Double.toString(Datas.get(i).getPrecio()));
+                pre2.setText("$"+Double.toString(Datas.get(i).getPrecio()));
             } else if (i == 2) {
                 cod3 = Integer.toString(Datas.get(i).getCodigo());
                 txt3.setText(Datas.get(i).getPlato());
-                pre3.setText(Double.toString(Datas.get(i).getPrecio()));
+                pre3.setText("$"+Double.toString(Datas.get(i).getPrecio()));
             } else if (i == 3) {
                 cod4 = Integer.toString(Datas.get(i).getCodigo());
                 txt4.setText(Datas.get(i).getPlato());
-                pre4.setText(Double.toString(Datas.get(i).getPrecio()));
+                pre4.setText("$"+Double.toString(Datas.get(i).getPrecio()));
             }
 
 
