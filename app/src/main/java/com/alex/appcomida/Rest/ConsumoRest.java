@@ -117,14 +117,7 @@ public class ConsumoRest {
         }
         catch (IOException e)
         {
-
-
-
-
-
         } catch (JSONException e) {
-
-
         }
         return dtoMenu;
     }

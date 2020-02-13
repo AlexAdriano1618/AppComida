@@ -128,10 +128,10 @@ public class Registro extends AppCompatActivity {
             int responseCode=urlConnection.getResponseCode();// conexion OK?
             if(responseCode== 201)
             {
-                Toast.makeText(this, "Hola soy un Toast", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show();
             }
             else{
-                Toast.makeText(this, "Hola soy un Toast", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Registro Erroneo", Toast.LENGTH_SHORT).show();
             }
 
 

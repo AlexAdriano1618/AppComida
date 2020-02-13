@@ -3,14 +3,18 @@ package com.alex.appcomida;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
+
 import com.alex.appcomida.Modelo.clsMenu;
 import com.alex.appcomida.Rest.ConsumoRest;
+import com.alex.appcomida.Rest.AdminSqlLiteOpen;
 
 
 public class Pedido extends AppCompatActivity {
@@ -40,12 +44,23 @@ public class Pedido extends AppCompatActivity {
         clsMenu menu = new clsMenu();
         ConsumoRest consumo = new ConsumoRest();
         menu=consumo.getDataMenuDetalle(resINF);
+        buscar();
+    }
+    public void buscar() {
+        AdminSqlLiteOpen admin = new AdminSqlLiteOpen(this, "administracion", null, 1);
+        SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
 
+            Cursor fila = BaseDeDatos.rawQuery("select codigousuario,codigomenu,cantidad, plato,precio from pedidos", null);
+        //Nos aseguramos de que existe al menos un registro
+        if (fila.moveToFirst()) {
+            //Recorremos el cursor hasta que no haya más registros
+            do {
+                String codigo= fila.getString(0);
+                String nombre = fila.getString(1);
+            } while(fila.moveToNext());
+        }
 
-
-
-
-
+            //Lista.setAdapter(adapter);
 
     }
 }
