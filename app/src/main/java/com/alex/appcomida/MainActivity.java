@@ -3,12 +3,14 @@ package com.alex.appcomida;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.alex.appcomida.Rest.AdminSqlLiteOpen;
 import com.alex.appcomida.Rest.ConsumoRest;
 
 public class MainActivity extends AppCompatActivity {
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
                 ConsumoRest consumo = new ConsumoRest();
                 Integer Codigousuario = consumo.getDataUsuarios(TextUsuario.getText().toString(), TextPassword.getText().toString());
                 if(Codigousuario>0){
+                    eliminarData();
                     Intent abrir_reg = new Intent(MainActivity.this, Menu.class );
                     startActivity(abrir_reg);
                 } else {
@@ -50,6 +53,12 @@ public class MainActivity extends AppCompatActivity {
 
         Intent abrir_reg = new Intent(MainActivity.this, Registro.class );
         startActivity(abrir_reg);
+    }
+    public void eliminarData()
+    {
+        AdminSqlLiteOpen admin = new  AdminSqlLiteOpen (this, "administracion", null, 1);
+        SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
+        BaseDeDatos.delete("pedidos",null,null);
     }
 
 

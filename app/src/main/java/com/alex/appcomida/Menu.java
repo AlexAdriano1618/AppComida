@@ -3,12 +3,14 @@ package com.alex.appcomida;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.alex.appcomida.Modelo.clsMenu;
 
+import com.alex.appcomida.Rest.AdminSqlLiteOpen;
 import com.alex.appcomida.Rest.ConsumoRest;
 
 import java.util.ArrayList;
@@ -30,18 +32,16 @@ public class Menu extends AppCompatActivity  {
         pre2 = findViewById(R.id.txtprecio2);
         pre3 = findViewById(R.id.txtprecio3);
         pre4 = findViewById(R.id.txtPrecio4);
+
         getData();
 
     }
+
 
     public void EnviarDatosPlato1 (View view){
         Intent abrir_prod1 = new Intent(Menu.this, DetalleMenu.class);
         abrir_prod1.putExtra("resID",R.drawable.seco_guanta);
         abrir_prod1.putExtra("resIDT", cod1.toString());
-
-
-
-
         startActivity(abrir_prod1);
     }
 
@@ -92,33 +92,11 @@ public class Menu extends AppCompatActivity  {
                 txt4.setText(Datas.get(i).getPlato());
                 pre4.setText("$"+Double.toString(Datas.get(i).getPrecio()));
             }
-
-
         }
 
     }
 
-   /* public void plato1(){
-        Intent abrir_prod1 = new Intent(Menu.this, DetalleMenu.class);
-        abrir_prod1.putExtra("resID",R.drawable.seco_guanta);
-        startActivity(abrir_prod1);
-    }*/
 
-
-
-    /*Intent i = new Intent(this, DetalleMenu.class);
-        i.putExtra("dato", txt1.getText().toString());
-    startActivity(i);*/
-
-
-
-    /*  public void plato2(){
-          Intent abrir_prod1 = new Intent(Menu.this, DetalleMenu.class);
-          abrir_prod1.putExtra("resID",R.drawable.seco_pollo);
-          abrir_prod1.putExtra("resIDT", txt1.getText().toString());
-          startActivity(abrir_prod1);
-
-      }*/
     public void plato3(){
         Intent abrir_prod1 = new Intent(Menu.this, DetalleMenu.class);
         abrir_prod1.putExtra("resID",R.drawable.fritada);
@@ -131,24 +109,6 @@ public class Menu extends AppCompatActivity  {
         startActivity(abrir_prod1);
 
     }
-/*
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.cv0:
-                //  plato1();
-                break;
-            case R.id.cv1:
-                //   plato2();
-                break;
-            case R.id.cv2:
-                //    plato3();
-                break;
-            case R.id.cv3:
-                // plato4();
-                break;
-        }
-    }
-    */
+
 
 }

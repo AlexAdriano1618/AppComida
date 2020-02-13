@@ -100,7 +100,6 @@ public class DetalleMenu extends AppCompatActivity {
     public void EnviarDatos(){
         AdminSqlLiteOpen admin = new  AdminSqlLiteOpen (this, "administracion", null, 1);
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
-        //BaseDeDatos.delete("pedidos",null,null);
         String codigo = Menucodigo;
         String cantidad = Integer.toString(contador);
         String plato = Plato;
