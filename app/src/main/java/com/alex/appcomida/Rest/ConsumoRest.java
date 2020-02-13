@@ -122,9 +122,9 @@ public class ConsumoRest {
         return dtoMenu;
     }
 
-    public  Boolean getDataUsuarios(String user , String pass)
+    public  int getDataUsuarios(String user , String pass)
     {
-        Boolean respuesta = false;
+        Integer respuesta = 0;
         //direccion de web service
         //https://appcomida.azurewebsites.net/Usuarios
 
@@ -159,13 +159,16 @@ public class ConsumoRest {
             String Usua = "";
             String Passw = "";
 
-
             for (int i=0; i<jsonArray.length();i++){
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 Usua =jsonObject.optString("usuar");
                 Passw = jsonObject.optString("pass");
                 if(Usua.equals(user) && Passw.equals(pass))
-                    respuesta= true;
+                {
+                    respuesta= Integer.parseInt(jsonObject.optString("codigo"));
+                }
+
+
             }
         }
         catch (IOException e){
