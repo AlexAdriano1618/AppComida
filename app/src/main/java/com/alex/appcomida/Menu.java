@@ -13,7 +13,7 @@ import com.alex.appcomida.Rest.ConsumoRest;
 
 import java.util.ArrayList;
 
-public class Menu extends AppCompatActivity  implements View.OnClickListener{
+public class Menu extends AppCompatActivity  {
 
     TextView txt1, txt2, txt3, txt4, pre1, pre2, pre3, pre4;
     String cod1, cod2, cod3, cod4;
@@ -38,6 +38,8 @@ public class Menu extends AppCompatActivity  implements View.OnClickListener{
         Intent abrir_prod1 = new Intent(Menu.this, DetalleMenu.class);
         abrir_prod1.putExtra("resID",R.drawable.seco_guanta);
         abrir_prod1.putExtra("resIDT", cod1.toString());
+
+
 
 
         startActivity(abrir_prod1);
@@ -129,7 +131,7 @@ public class Menu extends AppCompatActivity  implements View.OnClickListener{
         startActivity(abrir_prod1);
 
     }
-
+/*
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -147,4 +149,6 @@ public class Menu extends AppCompatActivity  implements View.OnClickListener{
                 break;
         }
     }
+    */
+
 }
