@@ -3,55 +3,31 @@ package com.alex.appcomida;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
+
 import com.alex.appcomida.Modelo.clsMenu;
-import com.alex.appcomida.Modelo.clsUsuarios;
 import com.alex.appcomida.Rest.ConsumoRest;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapView;
+import com.alex.appcomida.Rest.AdminSqlLiteOpen;
 
 
 public class Pedido extends AppCompatActivity {
-    GoogleMap googleMap;
-    MapView mapa;
+
     Button btnBack;
     private ListView Lista;
-    String la, lo;
     ArrayAdapter<String>adapter;
-
-    @Override
-    protected void onResume(){
-        super.onResume();
-        mapa.onResume();
-
-    }
-    @Override
-    protected void onDestroy(){
-        super.onDestroy();
-        mapa.onDestroy();
-    }
-    @Override
-    protected void onPause(){
-        super.onPause();
-        mapa.onPause();
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pedido);
 
-        mapa = findViewById(R.id.mapView);
-
-        mapa.onCreate(savedInstanceState);
-        //googleMap = mapa.getMapAsync();
-        googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-
         Lista = (ListView) findViewById(R.id.listV);
-        Bundle bundle = getIntent().getExtras();
         btnBack= findViewById(R.id.btnBack);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,23 +44,25 @@ public class Pedido extends AppCompatActivity {
         clsMenu menu = new clsMenu();
         ConsumoRest consumo = new ConsumoRest();
         menu=consumo.getDataMenuDetalle(resINF);
+        buscar();
+    }
+    public void buscar() {
+        AdminSqlLiteOpen admin = new AdminSqlLiteOpen(this, "administracion", null, 1);
+        SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
 
+            Cursor fila = BaseDeDatos.rawQuery("select codigousuario,codigomenu,cantidad, plato,precio from pedidos", null);
+        //Nos aseguramos de que existe al menos un registro
+        if (fila.moveToFirst()) {
+            //Recorremos el cursor hasta que no haya más registros
+            do {
 
-        int resid = bundle.getInt("resID");
+                String codigo= fila.getString(0);
+                String nombre = fila.getString(1);
+                String hola = fila.getString(2);
+            } while(fila.moveToNext());
+        }
 
-        String resIDT = getIntent().getStringExtra("resIDT");
-        //txtNombrePlato.setText("-"+resIDT);
+            //Lista.setAdapter(adapter);
 
-
-      /* clsUsuarios info = new clsUsuarios();
-        ConsumoRest coor = new ConsumoRest();
-        info=coor.getDataUsuarios(resIDT);
-
-
-        la = info.getLatitud();
-        lo = info.getLongitud();
-*/
-        // enviar inf a actividad Pedido
     }
 }
-

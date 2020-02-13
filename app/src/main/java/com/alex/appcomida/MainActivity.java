@@ -30,11 +30,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ConsumoRest consumo = new ConsumoRest();
-                if(consumo.getDataUsuarios(TextUsuario.getText().toString(), TextPassword.getText().toString())){
+                Integer Codigousuario = consumo.getDataUsuarios(TextUsuario.getText().toString(), TextPassword.getText().toString());
+                if(Codigousuario>0){
                     Intent abrir_reg = new Intent(MainActivity.this, Menu.class );
                     startActivity(abrir_reg);
                 } else {
-                    Toast.makeText(getApplicationContext(),"Credenciales incorrectas", Toast.LENGTH_SHORT);
+                    Toast.makeText(getApplicationContext(),"Credenciales incorrectas", Toast.LENGTH_SHORT).show();
                 }
             }
         });
