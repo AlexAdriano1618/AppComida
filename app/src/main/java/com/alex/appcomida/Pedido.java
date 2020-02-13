@@ -60,9 +60,9 @@ public class Pedido extends AppCompatActivity {
             //Nos aseguramos de que existe al menos un registro
         if (fila.moveToFirst()) {
             //Recorremos el cursor hasta que no haya más registros
+            names = new ArrayList<String>();
             do {
                 Double total = Double.valueOf(fila.getString(2)) * Double.valueOf(fila.getString(4));
-                names = new ArrayList<String>();
                 names.add(""+ fila.getString(2)+"     "+fila.getString(3)+"    $"+total);
                 totalpagar = totalpagar+total;
             } while(fila.moveToNext());
