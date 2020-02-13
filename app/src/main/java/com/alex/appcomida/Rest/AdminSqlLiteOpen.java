@@ -13,6 +13,7 @@ public class AdminSqlLiteOpen extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase BaseDeDatos) {
+
         BaseDeDatos.execSQL("create table pedidos(codigousuario int, codigomenu text,cantidad text,plato text, precio text)");
 
     }

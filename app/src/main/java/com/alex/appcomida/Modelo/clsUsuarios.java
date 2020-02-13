@@ -7,6 +7,9 @@ public class clsUsuarios {
     public String Celular;
     public String User;
     public String Pass;
+    public String Direccion;
+    public String Latitud;
+    public String Longitud;
 
     public int getCodigo() {
         return Codigo;
@@ -55,4 +58,30 @@ public class clsUsuarios {
     public void setPass(String pass) {
         Pass = pass;
     }
+
+    public String getDireccion() {
+        return Direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        Direccion = direccion;
+    }
+
+    public String getLatitud() {
+        return Latitud;
+    }
+
+    public void setLatitud(String latitud) {
+        Latitud = latitud;
+    }
+
+    public String getLongitud() {
+        return Longitud;
+    }
+
+    public void setLongitud(String longitud) {
+        Longitud = longitud;
+    }
+
+
 }

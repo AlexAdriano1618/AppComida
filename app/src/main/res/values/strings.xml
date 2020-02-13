@@ -44,4 +44,6 @@
     <string name="direcci_n">Dirección</string>
     <string name="ingrese_la_direcci_n_de_env_o">Ingrese la dirección de envío</string>
     <string name="aqui_ubique_su_posici_n"><![CDATA[<--Aqui ubique su posición]]></string>
+    <string name="_2">2</string>
+    <string name="_3">3</string>
 </resources>
