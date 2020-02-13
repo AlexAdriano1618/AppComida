@@ -95,20 +95,18 @@ public class DetalleMenu extends AppCompatActivity {
         txtPrecio.setText("$"+Double.toString(menu.getPrecio()));
 
         Menucodigo  = resIDT;
-        Cantidad= Integer.toString(contador);
+        Cantidad= String.valueOf(contador);
         Plato = menu.getPlato();
         Precio = Double.toString(menu.getPrecio());
-
-
-
         // enviar inf a actividad Pedido
     }
 
     public void EnviarDatos(){
         AdminSqlLiteOpen admin = new  AdminSqlLiteOpen (this, "administracion", null, 1);
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
+        BaseDeDatos.delete("pedidos",null,null);
         String codigo = Menucodigo;
-        String cantidad = Cantidad;
+        String cantidad = Integer.toString(contador);
         String plato = Plato;
         String pecio = Precio;
             ContentValues registro = new ContentValues();
@@ -119,9 +117,6 @@ public class DetalleMenu extends AppCompatActivity {
             registro.put("precio", pecio);
             BaseDeDatos.insert("pedidos", null, registro);
             BaseDeDatos.close();
-        //Intent abrir_inf = new Intent(this, Pedido.class);
-       // abrir_inf.putExtra("resINF", txtNombrePlato.getText().toString());
-       // startActivity(abrir_inf);
     }
 
 }
