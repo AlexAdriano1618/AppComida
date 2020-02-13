@@ -178,16 +178,14 @@ public class ConsumoRest {
         }
         return respuesta;
     }
-    public  clsUsuarios getDataUsuario(String id , String pass)
+    public  clsUsuarios getDataUsuario(String id )
     {
         clsUsuarios respuesta = new clsUsuarios();
         String sql = "https://appcomida.azurewebsites.net/api/Usuarios/"+id;
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
-
         URL url=null;
         HttpURLConnection conn;
-
         try {
             url = new URL(sql);
             conn=(HttpURLConnection) url.openConnection();
