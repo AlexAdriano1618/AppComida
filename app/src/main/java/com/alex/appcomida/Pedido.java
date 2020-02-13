@@ -56,7 +56,7 @@ public class Pedido extends AppCompatActivity {
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
 
             Cursor fila = BaseDeDatos.rawQuery("select codigousuario,codigomenu,cantidad, plato,precio from pedidos", null);
-
+        Double totalpagar =0.0;
             //Nos aseguramos de que existe al menos un registro
         if (fila.moveToFirst()) {
             //Recorremos el cursor hasta que no haya más registros
@@ -64,10 +64,11 @@ public class Pedido extends AppCompatActivity {
                 Double total = Double.valueOf(fila.getString(2)) * Double.valueOf(fila.getString(4));
                 names = new ArrayList<String>();
                 names.add(""+ fila.getString(2)+"     "+fila.getString(3)+"    $"+total);
+                totalpagar = totalpagar+total;
             } while(fila.moveToNext());
             ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, names);
             Lista.setAdapter(adapter1);
-
+            txtTotalPagar.setText("$"+totalpagar);
         }
     }
 }
