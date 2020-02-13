@@ -178,6 +178,7 @@ public class ConsumoRest {
         }
         return respuesta;
     }
+
     public  clsUsuarios getDataUsuario(String id )
     {
         clsUsuarios respuesta = new clsUsuarios();

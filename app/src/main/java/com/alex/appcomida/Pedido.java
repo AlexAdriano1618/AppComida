@@ -15,11 +15,21 @@ import android.widget.TextView;
 import com.alex.appcomida.Modelo.clsMenu;
 import com.alex.appcomida.Rest.ConsumoRest;
 import com.alex.appcomida.Rest.AdminSqlLiteOpen;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 
-public class Pedido extends AppCompatActivity {
+public class Pedido extends AppCompatActivity implements OnMapReadyCallback {
+
+
+    private GoogleMap mapa;
 
     TextView txtTotalPagar;
     Button btnBack;
@@ -30,6 +40,13 @@ public class Pedido extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pedido);
+
+        MapFragment mapFragment = (MapFragment) getFragmentManager()
+                .findFragmentById(R.id.map);
+
+        mapFragment.getMapAsync(this);
+
+
 
         txtTotalPagar = findViewById(R.id.txtTotalPagar);
         Lista = (ListView) findViewById(R.id.listV);
@@ -70,5 +87,14 @@ public class Pedido extends AppCompatActivity {
             Lista.setAdapter(adapter1);
             txtTotalPagar.setText("$"+totalpagar);
         }
+    }
+
+    @Override
+    public void onMapReady(GoogleMap map) {
+        mapa = map;
+
+        LatLng TuUbi = new LatLng(37.421998333333335, -122.08400000000002);
+        map.addMarker(new MarkerOptions().position(TuUbi).title("Tú"));
+        map.moveCamera(CameraUpdateFactory.newLatLng(TuUbi));
     }
 }
