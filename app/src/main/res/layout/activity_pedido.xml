@@ -23,6 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/se_entregar_aqui"
+        android:gravity="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textSize="24sp" />
 
@@ -68,10 +69,12 @@
         android:layout_width="match_parent"
         android:layout_height="33dp"
         android:text="Total a pagar"
+        android:gravity="center"
         android:textSize="18sp" />
 
     <TextView
         android:id="@+id/txtTotalPagar"
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
