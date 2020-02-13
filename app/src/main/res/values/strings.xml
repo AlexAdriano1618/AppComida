@@ -41,4 +41,7 @@
     <string name="plato">Plato</string>
     <string name="a_adir">Añadir</string>
     <string name="disminuir">Disminuir</string>
+    <string name="direcci_n">Dirección</string>
+    <string name="ingrese_la_direcci_n_de_env_o">Ingrese la dirección de envío</string>
+    <string name="aqui_ubique_su_posici_n"><![CDATA[<--Aqui ubique su posición]]></string>
 </resources>
