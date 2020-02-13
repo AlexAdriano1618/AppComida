@@ -9,9 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CursorAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.alex.appcomida.Modelo.clsMenu;
 import com.alex.appcomida.Rest.ConsumoRest;
@@ -61,13 +59,10 @@ public class Pedido extends AppCompatActivity {
             //Recorremos el cursor hasta que no haya más registros
             do {
                 names = new ArrayList<String>();
-                names.add(""+ fila.getString(2)+" "+fila.getString(3)+" $"+fila.getString(4));
+                names.add(""+ fila.getString(2)+"     "+fila.getString(3)+"    $"+fila.getString(4));
             } while(fila.moveToNext());
             ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, names);
             Lista.setAdapter(adapter1);
         }
-
-
-
     }
 }
