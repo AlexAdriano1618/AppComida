@@ -55,8 +55,10 @@ public class Pedido extends AppCompatActivity {
         if (fila.moveToFirst()) {
             //Recorremos el cursor hasta que no haya más registros
             do {
+
                 String codigo= fila.getString(0);
                 String nombre = fila.getString(1);
+                String hola = fila.getString(2);
             } while(fila.moveToNext());
         }
 
