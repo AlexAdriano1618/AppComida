@@ -139,11 +139,23 @@ public class Registro extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        limpia();
+        Intent volver = new Intent(Registro.this, MainActivity.class );
+        startActivity(volver);
     }
 
     //Obtener ubicacion
 
+private void limpia(){
 
+    nom.setText("");
+    ape.setText("");
+    usu.setText("");
+    cel.setText("");
+    con.setText("");
+    dir.setText("");
+    guar.setText("");
+}
 
     private void locationStart() {
         LocationManager mlocManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);

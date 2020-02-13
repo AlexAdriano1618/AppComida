@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.alex.appcomida.Modelo.clsUsuarios;
 import com.alex.appcomida.Rest.AdminSqlLiteOpen;
 import com.alex.appcomida.Rest.ConsumoRest;
 
@@ -35,12 +36,16 @@ public class MainActivity extends AppCompatActivity {
                 Integer Codigousuario = consumo.getDataUsuarios(TextUsuario.getText().toString(), TextPassword.getText().toString());
                 if(Codigousuario>0){
                     eliminarData();
+                    limpia();
+                    int codi = Codigousuario;
                     Intent abrir_reg = new Intent(MainActivity.this, Menu.class );
+                    abrir_reg.putExtra("resIDU",codi);
                     startActivity(abrir_reg);
                 } else {
                     Toast.makeText(getApplicationContext(),"Credenciales incorrectas", Toast.LENGTH_SHORT).show();
                 }
             }
+
         });
         btnRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,7 +65,11 @@ public class MainActivity extends AppCompatActivity {
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
         BaseDeDatos.delete("pedidos",null,null);
     }
+    private void limpia(){
 
+        TextPassword.setText("");
+        TextUsuario.setText("");
+    }
 
 
 }

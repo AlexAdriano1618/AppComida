@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alex.appcomida.Modelo.clsMenu;
+import com.alex.appcomida.Modelo.clsUsuarios;
 import com.alex.appcomida.Rest.AdminSqlLiteOpen;
 import com.alex.appcomida.Rest.ConsumoRest;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -27,6 +28,7 @@ public class DetalleMenu extends AppCompatActivity {
     Button btnAumentar, btnDisminuir;
 
     String  Menucodigo,Cantidad,Plato,Precio;
+    int idUsu;
 
     FloatingActionButton carrito;
     private int contador=0;
@@ -50,6 +52,7 @@ public class DetalleMenu extends AppCompatActivity {
             public void onClick(View v) {
                 EnviarDatos();
                 Intent abrir_car = new Intent(DetalleMenu.this, Pedido.class );
+                abrir_car.putExtra("resIDU", idUsu);
                 startActivity(abrir_car);
             }
         });
@@ -94,9 +97,13 @@ public class DetalleMenu extends AppCompatActivity {
         Cantidad= String.valueOf(contador);
         Plato = menu.getPlato();
         Precio = Double.toString(menu.getPrecio());
-        // enviar inf a actividad Pedido
+
+        //recupera id
+
+        idUsu = bundle.getInt("resIDU");
     }
 
+    // enviar inf a actividad Pedido
     public void EnviarDatos(){
         AdminSqlLiteOpen admin = new  AdminSqlLiteOpen (this, "administracion", null, 1);
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
@@ -113,5 +120,6 @@ public class DetalleMenu extends AppCompatActivity {
             BaseDeDatos.insert("pedidos", null, registro);
             BaseDeDatos.close();
     }
+
 
 }

@@ -13,6 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.alex.appcomida.Modelo.clsMenu;
+import com.alex.appcomida.Modelo.clsUsuarios;
 import com.alex.appcomida.Rest.ConsumoRest;
 import com.alex.appcomida.Rest.AdminSqlLiteOpen;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -23,19 +24,19 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 
 public class Pedido extends AppCompatActivity implements OnMapReadyCallback {
 
 
     private GoogleMap mapa;
-
-    TextView txtTotalPagar;
+    Double latit,longi;
+    TextView txtTotalPagar, dir;
     Button btnBack;
     private ListView Lista;
     ArrayAdapter<String>adapter;
     private ArrayList<String> names;
+    private int idUsu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,10 +47,12 @@ public class Pedido extends AppCompatActivity implements OnMapReadyCallback {
 
         mapFragment.getMapAsync(this);
 
+        Bundle bundle = getIntent().getExtras();
 
 
         txtTotalPagar = findViewById(R.id.txtTotalPagar);
         Lista = (ListView) findViewById(R.id.listV);
+        dir = findViewById(R.id.txtDir);
         btnBack= findViewById(R.id.btnBack);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,6 +70,11 @@ public class Pedido extends AppCompatActivity implements OnMapReadyCallback {
         ConsumoRest consumo = new ConsumoRest();
         menu=consumo.getDataMenuDetalle(resINF);
         buscar();
+
+        //Recibir ID
+
+        idUsu = bundle.getInt("resIDU");
+
     }
     public void buscar() {
         AdminSqlLiteOpen admin = new AdminSqlLiteOpen(this, "administracion", null, 1);
@@ -93,8 +101,17 @@ public class Pedido extends AppCompatActivity implements OnMapReadyCallback {
     public void onMapReady(GoogleMap map) {
         mapa = map;
 
-        LatLng TuUbi = new LatLng(37.421998333333335, -122.08400000000002);
-        map.addMarker(new MarkerOptions().position(TuUbi).title("Tú"));
+        ConsumoRest per = new ConsumoRest();
+        new clsUsuarios();
+        clsUsuarios rec = per.getDataUsuario(Integer.toString(idUsu));
+        latit = Double.valueOf(rec.getLatitud());
+        longi = Double.valueOf(rec.getLongitud());
+        dir.setText(rec.getDireccion());
+        //dir.setText(Integer.toString(idUsu));
+        map.getMaxZoomLevel();
+        LatLng TuUbi = new LatLng(latit , longi);
+        map.addMarker(new MarkerOptions().position(TuUbi).title("Dirección de Entrega"));
         map.moveCamera(CameraUpdateFactory.newLatLng(TuUbi));
+
     }
 }

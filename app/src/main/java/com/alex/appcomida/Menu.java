@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.alex.appcomida.Modelo.clsMenu;
 
+import com.alex.appcomida.Modelo.clsUsuarios;
 import com.alex.appcomida.Rest.AdminSqlLiteOpen;
 import com.alex.appcomida.Rest.ConsumoRest;
 
@@ -19,6 +20,7 @@ public class Menu extends AppCompatActivity  {
 
     TextView txt1, txt2, txt3, txt4, pre1, pre2, pre3, pre4;
     String cod1, cod2, cod3, cod4;
+    int residu;
     ImageView img1,img2,img3,img4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,11 @@ public class Menu extends AppCompatActivity  {
         pre3 = findViewById(R.id.txtprecio3);
         pre4 = findViewById(R.id.txtPrecio4);
 
+        Bundle bundle = getIntent().getExtras();
+        residu = bundle.getInt("resIDU");
+
+
+
         getData();
 
     }
@@ -42,6 +49,7 @@ public class Menu extends AppCompatActivity  {
         Intent abrir_prod1 = new Intent(Menu.this, DetalleMenu.class);
         abrir_prod1.putExtra("resID",R.drawable.seco_guanta);
         abrir_prod1.putExtra("resIDT", cod1.toString());
+        abrir_prod1.putExtra("resIDU", residu);
         startActivity(abrir_prod1);
     }
 
@@ -49,7 +57,7 @@ public class Menu extends AppCompatActivity  {
         Intent abrir_prod2 = new Intent(Menu.this, DetalleMenu.class);
         abrir_prod2.putExtra("resID",R.drawable.hamburguesa);
         abrir_prod2.putExtra("resIDT", cod2.toString());
-
+        abrir_prod2.putExtra("resIDU", residu);
         startActivity(abrir_prod2);
     }
 
@@ -57,7 +65,7 @@ public class Menu extends AppCompatActivity  {
         Intent abrir_prod3 = new Intent(Menu.this, DetalleMenu.class);
         abrir_prod3.putExtra("resID",R.drawable.fritada);
         abrir_prod3.putExtra("resIDT", cod3.toString());
-
+        abrir_prod3.putExtra("resIDU", residu);
         startActivity(abrir_prod3);
     }
 
@@ -65,9 +73,10 @@ public class Menu extends AppCompatActivity  {
         Intent abrir_prod4 = new Intent(Menu.this, DetalleMenu.class);
         abrir_prod4.putExtra("resID",R.drawable.helado);
         abrir_prod4.putExtra("resIDT", cod4.toString());
-
+        abrir_prod4.putExtra("resIDU", residu);
         startActivity(abrir_prod4);
     }
+
 
 
     public void getData() {
