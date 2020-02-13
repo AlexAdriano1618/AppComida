@@ -3,13 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:fillViewport="false">
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:focusable="auto"
     android:isScrollContainer="true"
+    android:keepScreenOn="false"
     android:orientation="vertical"
+    tools:actionBarNavMode="standard"
     tools:context=".Registro">
 
     <TextView
@@ -176,27 +179,6 @@
                 android:inputType="text"
                 android:singleLine="true"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/FABMyPos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:focusable="true"
-                app:srcCompat="@drawable/placeholder" />
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="@string/aqui_ubique_su_posici_n"
-                android:textStyle="bold" />
         </TableRow>
 
         <TableRow
