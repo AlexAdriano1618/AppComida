@@ -77,16 +77,12 @@ public class DetalleMenu extends AppCompatActivity {
                 txtCantidad1.setText(""+contador );
             }
         });
-        txtCantidad1.setText("1");
+        contador = 1;
+        txtCantidad1.setText(""+contador);
 
         int resid = bundle.getInt("resID");
         img.setImageResource(resid);
-
-
         String resIDT = getIntent().getStringExtra("resIDT");
-        //txtNombrePlato.setText("-"+resIDT);
-
-
         clsMenu menu = new clsMenu();
         ConsumoRest consumo = new ConsumoRest();
         menu=consumo.getDataMenuDetalle(resIDT);

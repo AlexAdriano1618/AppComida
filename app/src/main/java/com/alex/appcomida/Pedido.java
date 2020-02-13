@@ -58,8 +58,9 @@ public class Pedido extends AppCompatActivity {
         if (fila.moveToFirst()) {
             //Recorremos el cursor hasta que no haya más registros
             do {
+                Double total = Double.valueOf(fila.getString(2)) * Double.valueOf(fila.getString(4));
                 names = new ArrayList<String>();
-                names.add(""+ fila.getString(2)+"     "+fila.getString(3)+"    $"+fila.getString(4));
+                names.add(""+ fila.getString(2)+"     "+fila.getString(3)+"    $"+total);
             } while(fila.moveToNext());
             ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, names);
             Lista.setAdapter(adapter1);

@@ -193,6 +193,5 @@
                 android:text="@string/guardar" />
         </TableRow>
     </TableLayout>
-
 </LinearLayout>
 </ScrollView>
