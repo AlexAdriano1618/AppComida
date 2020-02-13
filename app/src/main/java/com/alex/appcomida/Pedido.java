@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.alex.appcomida.Modelo.clsMenu;
 import com.alex.appcomida.Rest.ConsumoRest;
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 
 public class Pedido extends AppCompatActivity {
 
+    TextView txtTotalPagar;
     Button btnBack;
     private ListView Lista;
     ArrayAdapter<String>adapter;
@@ -29,6 +31,7 @@ public class Pedido extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pedido);
 
+        txtTotalPagar = findViewById(R.id.txtTotalPagar);
         Lista = (ListView) findViewById(R.id.listV);
         btnBack= findViewById(R.id.btnBack);
         btnBack.setOnClickListener(new View.OnClickListener() {
