@@ -64,6 +64,7 @@ public class Pedido extends AppCompatActivity {
             } while(fila.moveToNext());
             ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, names);
             Lista.setAdapter(adapter1);
+
         }
     }
 }
