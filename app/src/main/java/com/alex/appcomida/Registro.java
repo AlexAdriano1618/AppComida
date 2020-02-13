@@ -39,7 +39,7 @@ public class Registro extends AppCompatActivity {
 
     EditText nom, ape, usu, cel, con, dir;
     Button guar;
-    FloatingActionButton mygps;
+
     String lat, lon;
 
     @Override
@@ -55,12 +55,7 @@ public class Registro extends AppCompatActivity {
         dir = findViewById(R.id.txtDir);
         guar = findViewById(R.id.btnGuardar);
 
-        mygps.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                miUbicacion();
-            }
-        });
+
         guar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -128,7 +123,7 @@ public class Registro extends AppCompatActivity {
             int responseCode=urlConnection.getResponseCode();// conexion OK?
             if(responseCode== 201)
             {
-                Toast.makeText(getApplicationContext(), "Registro exitoso", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Registro exitoso", Toast.LENGTH_LONG).show();
             }
             else{
                 Toast.makeText(getApplicationContext(), "Registro Erroneo", Toast.LENGTH_SHORT).show();
