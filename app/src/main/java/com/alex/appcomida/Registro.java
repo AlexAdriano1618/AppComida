@@ -40,7 +40,7 @@ public class Registro extends AppCompatActivity {
     EditText nom, ape, usu, cel, con, dir;
     Button guar;
     FloatingActionButton mygps;
-    Double lat, lon;
+    String lat, lon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
