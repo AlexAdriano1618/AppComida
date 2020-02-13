@@ -15,8 +15,12 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class DetalleMenu extends AppCompatActivity {
 
     ImageView img;
-    TextView txtNombrePlato, txtDetallePlato, txtCantidad1;
+    TextView txtNombrePlato;
+    TextView txtDetallePlato;
+    TextView txtCantidad1;
+    TextView txtPrecio;
     Button btnAumentar, btnDisminuir;
+
     FloatingActionButton carrito;
     private int contador=0;
     @Override
@@ -27,6 +31,7 @@ public class DetalleMenu extends AppCompatActivity {
         txtNombrePlato = findViewById(R.id.txtNombrePlato);
         txtDetallePlato = findViewById(R.id.txtDescripcionPlato);
         txtCantidad1= findViewById(R.id.txtCantidad1);
+        txtPrecio = findViewById(R.id.txtPrecio);
         btnAumentar = findViewById(R.id.btnAumentar);
         btnDisminuir = findViewById(R.id.btnDisminuir);
         carrito = findViewById(R.id.FABCarrito);
@@ -73,13 +78,23 @@ public class DetalleMenu extends AppCompatActivity {
         String resIDT = getIntent().getStringExtra("resIDT");
         //txtNombrePlato.setText("-"+resIDT);
 
+
         clsMenu menu = new clsMenu();
         ConsumoRest consumo = new ConsumoRest();
         menu=consumo.getDataMenuDetalle(resIDT);
         txtNombrePlato.setText(menu.getPlato());
         txtDetallePlato.setText(menu.getDescripcion());
+        txtPrecio.setText((int) menu.getPrecio());
 
 
+
+        // enviar inf a actividad Pedido
+    }
+
+    public void EnviarDatosPlato1 (View view){
+        Intent abrir_inf = new Intent(this, Pedido.class);
+        abrir_inf.putExtra("resINF", txtNombrePlato.getText().toString());
+        startActivity(abrir_inf);
     }
 
 

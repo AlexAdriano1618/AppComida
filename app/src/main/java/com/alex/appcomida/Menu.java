@@ -38,6 +38,8 @@ public class Menu extends AppCompatActivity  implements View.OnClickListener{
         Intent abrir_prod1 = new Intent(Menu.this, DetalleMenu.class);
         abrir_prod1.putExtra("resID",R.drawable.seco_guanta);
         abrir_prod1.putExtra("resIDT", cod1.toString());
+
+
         startActivity(abrir_prod1);
     }
 
