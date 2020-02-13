@@ -45,7 +45,7 @@ public class Menu extends AppCompatActivity  implements View.OnClickListener{
 
     public void EnviarDatosPlato2 (View view){
         Intent abrir_prod2 = new Intent(Menu.this, DetalleMenu.class);
-        abrir_prod2.putExtra("resID",R.drawable.seco_pollo);
+        abrir_prod2.putExtra("resID",R.drawable.hamburguesa);
         abrir_prod2.putExtra("resIDT", cod2.toString());
 
         startActivity(abrir_prod2);
@@ -61,7 +61,7 @@ public class Menu extends AppCompatActivity  implements View.OnClickListener{
 
     public void EnviarDatosPlato4 (View view){
         Intent abrir_prod4 = new Intent(Menu.this, DetalleMenu.class);
-        abrir_prod4.putExtra("resID",R.drawable.ceviche_camaron);
+        abrir_prod4.putExtra("resID",R.drawable.helado);
         abrir_prod4.putExtra("resIDT", cod4.toString());
 
         startActivity(abrir_prod4);

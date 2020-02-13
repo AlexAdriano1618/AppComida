@@ -84,7 +84,7 @@ public class DetalleMenu extends AppCompatActivity {
         menu=consumo.getDataMenuDetalle(resIDT);
         txtNombrePlato.setText(menu.getPlato());
         txtDetallePlato.setText(menu.getDescripcion());
-        txtPrecio.setText(Double.toString(menu.getPrecio()));
+        txtPrecio.setText("$"+Double.toString(menu.getPrecio()));
 
 
 

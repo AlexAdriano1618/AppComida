@@ -89,11 +89,11 @@
 
             <ImageView
                 android:id="@+id/imgV2"
-                android:layout_width="338dp"
+                android:layout_width="341dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="EnviarDatosPlato2"
-                app:srcCompat="@drawable/seco_pollo" />
+                app:srcCompat="@drawable/hamburguesa" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -198,7 +198,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="EnviarDatosPlato4"
-                app:srcCompat="@drawable/ceviche_camaron" />
+                app:srcCompat="@drawable/helado" />
 
             <LinearLayout
                 android:layout_width="match_parent"
