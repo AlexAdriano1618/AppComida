@@ -77,7 +77,7 @@ public class DetalleMenu extends AppCompatActivity {
                 txtCantidad1.setText(""+contador );
             }
         });
-
+        txtCantidad1.setText("1");
 
         int resid = bundle.getInt("resID");
         img.setImageResource(resid);
