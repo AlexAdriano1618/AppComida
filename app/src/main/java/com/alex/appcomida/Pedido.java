@@ -102,11 +102,11 @@ public class Pedido extends AppCompatActivity implements OnMapReadyCallback {
         mapa = map;
 
         ConsumoRest per = new ConsumoRest();
-        new clsUsuarios();
-        clsUsuarios rec = per.getDataUsuario(Integer.toString(idUsu));
-        latit = Double.valueOf(rec.getLatitud());
-        longi = Double.valueOf(rec.getLongitud());
-        dir.setText(rec.getDireccion());
+        clsUsuarios datos =new clsUsuarios();
+        datos = per.getDataUsuario(Integer.toString(idUsu));
+        latit = Double.valueOf(datos.getLatitud());
+        longi = Double.valueOf(datos.getLongitud());
+        dir.setText(datos.getDireccion());
         //dir.setText(Integer.toString(idUsu));
         map.getMaxZoomLevel();
         LatLng TuUbi = new LatLng(latit , longi);
