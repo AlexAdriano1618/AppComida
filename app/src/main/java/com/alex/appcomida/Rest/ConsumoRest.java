@@ -125,9 +125,6 @@ public class ConsumoRest {
     public  int getDataUsuarios(String user , String pass)
     {
         Integer respuesta = 0;
-        //direccion de web service
-        //https://appcomida.azurewebsites.net/Usuarios
-
         String sql = "https://appcomida.azurewebsites.net/api/Usuarios";
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -178,6 +175,52 @@ public class ConsumoRest {
         } catch (JSONException e) {
 
 
+        }
+        return respuesta;
+    }
+    public  clsUsuarios getDataUsuario(String id , String pass)
+    {
+        clsUsuarios respuesta = new clsUsuarios();
+        String sql = "https://appcomida.azurewebsites.net/api/Usuarios/"+id;
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
+        URL url=null;
+        HttpURLConnection conn;
+
+        try {
+            url = new URL(sql);
+            conn=(HttpURLConnection) url.openConnection();
+
+            conn.setRequestMethod("GET");
+            conn.connect();
+
+            BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            String inputLine;
+            StringBuffer response = new StringBuffer();
+            String json="";
+
+            while((inputLine=in.readLine())!=null){
+                response.append(inputLine);
+
+            }
+            json = response.toString();
+
+            JSONObject jsonObject = new JSONObject(json);
+
+            respuesta.setCodigo(Integer.parseInt(jsonObject.optString("codigo")));
+            respuesta.setNombre(jsonObject.optString("nombre"));
+            respuesta.setApellido(jsonObject.optString("apellido"));
+            respuesta.setCelular(jsonObject.optString("celular"));
+            respuesta.setUser(jsonObject.optString("usuar"));
+            respuesta.setPass(jsonObject.optString("pass"));
+            respuesta.setDireccion(jsonObject.optString("direccion"));
+            respuesta.setLatitud(jsonObject.optString("latitud"));
+            respuesta.setLongitud(jsonObject.optString("longitud"));
+        }
+        catch (IOException e)
+        {
+        } catch (JSONException e) {
         }
         return respuesta;
     }
