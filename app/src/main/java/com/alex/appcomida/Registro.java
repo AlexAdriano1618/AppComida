@@ -54,7 +54,6 @@ public class Registro extends AppCompatActivity {
         con = findViewById(R.id.txtPwd);
         dir = findViewById(R.id.txtDir);
         guar = findViewById(R.id.btnGuardar);
-        mygps = findViewById(R.id.FABMyPos);
 
         mygps.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,8 +105,8 @@ public class Registro extends AppCompatActivity {
             parametrosPost.put("usuar", usu.getText());
             parametrosPost.put("pass", con.getText());
             parametrosPost.put("direccion", dir.getText());
-            parametrosPost.put("latitud", lat);
-            parametrosPost.put("longitud", lon);
+            parametrosPost.put("latitud", lat.toString());
+            parametrosPost.put("longitud", lon.toString());
 
 
             //DEFINIR PARAMETROS DE CONEXION
@@ -167,7 +166,7 @@ public class Registro extends AppCompatActivity {
         mlocManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, (LocationListener) Local);
         mlocManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, (LocationListener) Local);
 
-        Toast.makeText(this,"Localización ", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"Localización obtenida", Toast.LENGTH_SHORT).show();
         //lat.toString("Localizacion agregada");
         //lon= ';
     }
@@ -190,7 +189,7 @@ public class Registro extends AppCompatActivity {
                         loc.getLatitude(), loc.getLongitude(), 1);
                 if (!list.isEmpty()) {
                     Address DirCalle = list.get(0);
-                    dir.setText(DirCalle.getAddressLine(0));
+                    //dir.setText(DirCalle.getAddressLine(0));
                 }
 
             } catch (IOException e) {

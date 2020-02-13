@@ -28,7 +28,7 @@ public class Pedido extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent regresar_car = new Intent(Pedido.this, DetalleMenu.class );
+                Intent regresar_car = new Intent(Pedido.this, Menu.class );
                 startActivity(regresar_car);
             }
         });
