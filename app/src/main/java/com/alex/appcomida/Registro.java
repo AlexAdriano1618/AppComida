@@ -222,8 +222,8 @@ public class Localizacion implements LocationListener {
                 + loc.getLatitude() + "\n Long = " + loc.getLongitude();
         Double Lati = loc.getLatitude();
         Double Longi = loc.getLongitude();
-        lat = Lati;
-        lon = Longi;
+        lat = Double.toString(Lati) ;
+        lon =  Double.toString(Longi) ;
         this.registro.setLocation(loc);
     }
 
