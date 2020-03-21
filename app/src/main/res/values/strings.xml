@@ -46,4 +46,14 @@
     <string name="aqui_ubique_su_posici_n"><![CDATA[<--Aqui ubique su posición]]></string>
     <string name="_2">2</string>
     <string name="_3">3</string>
+
+
+    <string name="facebook_app_id">644312323002333</string>
+    <string name="fb_login_protocol_scheme">fb644312323002333</string>
+    <string name="welcome">Bienvenido</string>
+    <string name="cancel_login">Se canceló la operación</string>
+    <string name="error_login">Ocurrió un error al ingresar</string>
+    <string name="logout">Cerrar sesión</string>
+
+
 </resources>

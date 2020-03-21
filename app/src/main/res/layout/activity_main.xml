@@ -9,8 +9,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="331dp"
-        android:layout_height="363dp"
+        android:layout_width="338dp"
+        android:layout_height="370dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,6 +38,8 @@
         <Button
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
+            android:background="@drawable/btnlogin1"
+            android:textColor="@drawable/txtlogin1"
             android:layout_height="67dp"
             android:onClick="onClick"
             android:text="@string/login"
@@ -48,22 +50,26 @@
             android:id="@+id/btn_registrar"
             android:layout_width="match_parent"
             android:layout_height="67dp"
+            android:background="@drawable/btnlogin1"
+            android:textColor="@drawable/txtlogin1"
             android:onClick="onClick"
-            android:text="@string/registrar"
-            />
+            android:text="@string/registrar" />
+
+
+
 
 
     </LinearLayout>
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="294dp"
+        android:layout_height="240dp"
         android:layout_marginTop="60dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo1" />
+        app:srcCompat="@drawable/logoc" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

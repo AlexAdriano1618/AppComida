@@ -13,6 +13,8 @@ import com.alex.appcomida.Modelo.clsMenu;
 import com.alex.appcomida.Modelo.clsUsuarios;
 import com.alex.appcomida.Rest.AdminSqlLiteOpen;
 import com.alex.appcomida.Rest.ConsumoRest;
+import com.facebook.AccessToken;
+import com.facebook.login.LoginManager;
 
 import java.util.ArrayList;
 
@@ -38,11 +40,29 @@ public class Menu extends AppCompatActivity  {
         Bundle bundle = getIntent().getExtras();
         residu = bundle.getInt("resIDU");
 
-
-
         getData();
 
+        
+        // get FB
+      /*  if (AccessToken.getCurrentAccessToken()==null){
+            goLoginScreen();
+        }*/
     }
+
+ // fb
+    private void goLoginScreen() {
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
+    public void logout(View view){
+        LoginManager.getInstance().logOut();
+        goLoginScreen();
+
+    }
+
+
 
 
     public void EnviarDatosPlato1 (View view){
