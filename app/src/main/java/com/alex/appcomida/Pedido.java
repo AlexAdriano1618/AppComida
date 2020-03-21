@@ -58,6 +58,7 @@ public class Pedido extends AppCompatActivity implements OnMapReadyCallback {
             @Override
             public void onClick(View view) {
                 Intent regresar_car = new Intent(Pedido.this, Menu.class );
+                regresar_car.putExtra("resIDU",idUsu);
                 startActivity(regresar_car);
             }
         });
